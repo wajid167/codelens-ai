@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef, useState, type FormEvent } from 'react'
+﻿import { useEffect, useMemo, useRef, useState, type FormEvent } from 'react'
 import type { Session } from '@supabase/supabase-js'
 import Editor from '@monaco-editor/react'
 import { supabase, supabaseConfigured } from './lib/supabase'
@@ -85,8 +85,8 @@ const quizQuestions: QuizQuestion[] = [
   { id: 'flow-3', topic: 'Control Flow', question: 'What does break do inside a loop?', options: ['Skips only the current iteration', 'Restarts the loop', 'Exits the nearest loop', 'Pauses the program'], correct: 2, explanation: '`break` immediately exits the nearest enclosing loop (or switch statement). `continue` skips to the next iteration.' },
   { id: 'flow-4', topic: 'Control Flow', question: 'What does continue do inside a loop?', options: ['Ends the whole program', 'Skips the rest of the current iteration', 'Exits every nested loop', 'Repeats the same statement forever'], correct: 1, explanation: '`continue` skips the remaining statements in the current iteration and proceeds with the next iteration.' },
   { id: 'flow-5', topic: 'Control Flow', question: 'What is special about a do-while loop?', options: ['It never checks a condition', 'It can only run once', 'It is used only with arrays', 'Its body runs at least once'], correct: 3, explanation: 'A `do-while` loop checks its condition after the body, so the body executes at least once.' },
-  { id: 'ds-1', topic: 'Data Structures', question: 'Which rule does a stack follow?', options: ['FIFO — First In, First Out', 'LIFO — Last In, First Out', 'Random access only', 'Smallest value first'], correct: 1, explanation: 'A stack follows LIFO: the most recently pushed item is the first one popped.' },
-  { id: 'ds-2', topic: 'Data Structures', question: 'Which rule does a queue follow?', options: ['LIFO — Last In, First Out', 'Largest value first', 'FIFO — First In, First Out', 'Alphabetical order'], correct: 2, explanation: 'A queue follows FIFO: items are normally added at the rear and removed from the front.' },
+  { id: 'ds-1', topic: 'Data Structures', question: 'Which rule does a stack follow?', options: ['FIFO â€” First In, First Out', 'LIFO â€” Last In, First Out', 'Random access only', 'Smallest value first'], correct: 1, explanation: 'A stack follows LIFO: the most recently pushed item is the first one popped.' },
+  { id: 'ds-2', topic: 'Data Structures', question: 'Which rule does a queue follow?', options: ['LIFO â€” Last In, First Out', 'Largest value first', 'FIFO â€” First In, First Out', 'Alphabetical order'], correct: 2, explanation: 'A queue follows FIFO: items are normally added at the rear and removed from the front.' },
   { id: 'ds-3', topic: 'Data Structures', question: 'In a basic singly linked-list node, what is commonly stored?', options: ['Data and a pointer to the next node', 'Only an array index', 'Two parent pointers', 'Only the node color'], correct: 0, explanation: 'A singly linked-list node stores its data and a link (pointer) to the next node. The last node usually points to `nullptr`.' },
   { id: 'ds-4', topic: 'Data Structures', question: 'What is the maximum number of children a node can have in a binary tree?', options: ['1', '2', '3', 'Unlimited'], correct: 1, explanation: 'A binary tree node has at most two children, commonly called the left child and right child.' },
   { id: 'ds-5', topic: 'Data Structures', question: 'What is the visit order for an inorder traversal of a binary tree?', options: ['Root, Left, Right', 'Left, Right, Root', 'Left, Root, Right', 'Right, Root, Left only'], correct: 2, explanation: 'Inorder traversal visits the left subtree, then the root node, then the right subtree.' },
@@ -1252,9 +1252,9 @@ function getTraversalOrder(nodes: TreeNode[], traversal: TreeTraversal): number[
 
 function buildTreeTraversalFrames(nodes: TreeNode[], traversal: TreeTraversal): TreeFrame[] {
   const names: Record<TreeTraversal, string> = {
-    preorder: 'Preorder (Root → Left → Right)',
-    inorder: 'Inorder (Left → Root → Right)',
-    postorder: 'Postorder (Left → Right → Root)',
+    preorder: 'Preorder (Root â†’ Left â†’ Right)',
+    inorder: 'Inorder (Left â†’ Root â†’ Right)',
+    postorder: 'Postorder (Left â†’ Right â†’ Root)',
     levelorder: 'Level Order (Level by Level)',
   }
   const order = getTraversalOrder(nodes, traversal)
@@ -1286,7 +1286,7 @@ function buildTreeTraversalFrames(nodes: TreeNode[], traversal: TreeTraversal): 
     visited: [...visited],
     output: [...output],
     label: 'TRAVERSAL COMPLETE',
-    message: `All ${nodes.length} nodes have been visited. Final traversal: ${output.join(' → ')}.`,
+    message: `All ${nodes.length} nodes have been visited. Final traversal: ${output.join(' â†’ ')}.`,
   })
   return frames
 }
@@ -1336,12 +1336,12 @@ function buildTreeSearchFrames(nodes: TreeNode[], target: number): TreeFrame[] {
 }
 
 const featureCards = [
-  { icon: '🧠', number: '01', title: 'AI Code Teacher', text: 'Understand tricky code with friendly, step-by-step explanations.', tone: 'lavender' },
-  { icon: '🎬', number: '02', title: 'Visual Code Steps', text: 'Follow variables and program logic as each line is explored.', tone: 'peach' },
-  { icon: '🌳', number: '03', title: 'Data Structures Lab', text: 'Explore arrays, stacks, queues, linked lists and trees.', tone: 'mint' },
-  { icon: '🐞', number: '04', title: 'Friendly Debugging', text: 'Learn what an error means and how to approach fixing it.', tone: 'blue' },
-  { icon: '📝', number: '05', title: 'C++ Quiz Center', text: 'Check your understanding with topic-based questions and instant explanations.', tone: 'lavender' },
-  { icon: '🏁', number: '06', title: 'Coding Challenge Arena', text: 'Solve timed C++ problems and test your solutions against sample cases.', tone: 'blue' },
+  { icon: 'ðŸ§ ', number: '01', title: 'AI Code Teacher', text: 'Understand tricky code with friendly, step-by-step explanations.', tone: 'lavender' },
+  { icon: 'ðŸŽ¬', number: '02', title: 'Visual Code Steps', text: 'Follow variables and program logic as each line is explored.', tone: 'peach' },
+  { icon: 'ðŸŒ³', number: '03', title: 'Data Structures Lab', text: 'Explore arrays, stacks, queues, linked lists and trees.', tone: 'mint' },
+  { icon: 'ðŸž', number: '04', title: 'Friendly Debugging', text: 'Learn what an error means and how to approach fixing it.', tone: 'blue' },
+  { icon: 'ðŸ“', number: '05', title: 'C++ Quiz Center', text: 'Check your understanding with topic-based questions and instant explanations.', tone: 'lavender' },
+  { icon: 'ðŸ', number: '06', title: 'Coding Challenge Arena', text: 'Solve timed C++ problems and test your solutions against sample cases.', tone: 'blue' },
 ]
 
 function App() {
@@ -2321,28 +2321,28 @@ function App() {
           <div className="workspace-breadcrumb"><span>Workspace</span><b>/</b><strong>Untitled.cpp</strong></div>
           <div className="workspace-top-actions">
             <span className="saved-indicator"><i /> C++ sandbox</span>
-            <button className="account-top-button" type="button" onClick={openAccount}>{session ? `☁ ${session.user.email ?? 'Account'}` : '☁ Sign in & sync'}</button>
-            <button className="top-home-button" type="button" onClick={() => setPage('home')}>← Home</button>
+            <button className="account-top-button" type="button" onClick={openAccount}>{session ? `â˜ ${session.user.email ?? 'Account'}` : 'â˜ Sign in & sync'}</button>
+            <button className="top-home-button" type="button" onClick={() => setPage('home')}>â† Home</button>
           </div>
         </header>
 
         <div className="workspace-layout">
           <aside className="workspace-sidebar">
             <div className="side-label">WORKSPACE</div>
-            <button className="side-link side-link-active" type="button"><span>⌘</span> Code Editor</button>
-            <button className={`side-link ${activeTab === 'teacher' ? 'side-link-active' : ''}`} type="button" onClick={openTeacher}><span>✦</span> AI Code Teacher</button>
-            <button className={`side-link ${activeTab === 'visualizer' ? 'side-link-active' : ''}`} type="button" onClick={openVisualizer}><span>◇</span> Code Visualizer</button>
-            <button className={`side-link ${activeTab === 'arrays' ? 'side-link-active' : ''}`} type="button" onClick={openArrayLab}><span>♧</span> Array Lab</button>
-            <button className={`side-link ${activeTab === 'linear' ? 'side-link-active' : ''}`} type="button" onClick={openStackQueue}><span>⇅</span> Stack &amp; Queue</button>
-            <button className={`side-link ${activeTab === 'linked' ? 'side-link-active' : ''}`} type="button" onClick={openLinkedList}><span>↗</span> Linked List</button>
-            <button className={`side-link ${activeTab === 'tree' ? 'side-link-active' : ''}`} type="button" onClick={openTreeLab}><span>🌳</span> Binary Tree</button>
-            <button className={`side-link ${activeTab === 'quiz' ? 'side-link-active' : ''}`} type="button" onClick={openQuiz}><span>📝</span> C++ Quiz Center</button>
-            <button className={`side-link ${activeTab === 'challenge' ? 'side-link-active' : ''}`} type="button" onClick={openChallengeArena}><span>🏁</span> Coding Challenges</button>
-            <button className={`side-link ${activeTab === 'progress' ? 'side-link-active' : ''}`} type="button" onClick={openProgress}><span>📊</span> My Progress</button>
-            <button className={`side-link ${activeTab === 'snippets' ? 'side-link-active' : ''}`} type="button" onClick={openSnippets}><span>📚</span> Snippet Library</button>
-            <button className={`side-link ${activeTab === 'account' ? 'side-link-active' : ''}`} type="button" onClick={openAccount}><span>☁</span> Account &amp; Sync</button>
+            <button className="side-link side-link-active" type="button"><span>âŒ˜</span> Code Editor</button>
+            <button className={`side-link ${activeTab === 'teacher' ? 'side-link-active' : ''}`} type="button" onClick={openTeacher}><span>âœ¦</span> AI Code Teacher</button>
+            <button className={`side-link ${activeTab === 'visualizer' ? 'side-link-active' : ''}`} type="button" onClick={openVisualizer}><span>â—‡</span> Code Visualizer</button>
+            <button className={`side-link ${activeTab === 'arrays' ? 'side-link-active' : ''}`} type="button" onClick={openArrayLab}><span>â™§</span> Array Lab</button>
+            <button className={`side-link ${activeTab === 'linear' ? 'side-link-active' : ''}`} type="button" onClick={openStackQueue}><span>â‡…</span> Stack &amp; Queue</button>
+            <button className={`side-link ${activeTab === 'linked' ? 'side-link-active' : ''}`} type="button" onClick={openLinkedList}><span>â†—</span> Linked List</button>
+            <button className={`side-link ${activeTab === 'tree' ? 'side-link-active' : ''}`} type="button" onClick={openTreeLab}><span>ðŸŒ³</span> Binary Tree</button>
+            <button className={`side-link ${activeTab === 'quiz' ? 'side-link-active' : ''}`} type="button" onClick={openQuiz}><span>ðŸ“</span> C++ Quiz Center</button>
+            <button className={`side-link ${activeTab === 'challenge' ? 'side-link-active' : ''}`} type="button" onClick={openChallengeArena}><span>ðŸ</span> Coding Challenges</button>
+            <button className={`side-link ${activeTab === 'progress' ? 'side-link-active' : ''}`} type="button" onClick={openProgress}><span>ðŸ“Š</span> My Progress</button>
+            <button className={`side-link ${activeTab === 'snippets' ? 'side-link-active' : ''}`} type="button" onClick={openSnippets}><span>ðŸ“š</span> Snippet Library</button>
+            <button className={`side-link ${activeTab === 'account' ? 'side-link-active' : ''}`} type="button" onClick={openAccount}><span>â˜</span> Account &amp; Sync</button>
             <div className="sidebar-bottom">
-              <div className="sidebar-tip-icon">💡</div>
+              <div className="sidebar-tip-icon">ðŸ’¡</div>
               <strong>Little tip</strong>
               <p>Press the Tab key inside the editor to indent your C++ code.</p>
             </div>
@@ -2355,23 +2355,23 @@ function App() {
                 <h1>Let's write some <span>code.</span></h1>
                 <p>A calm space to experiment, learn and build your programming skills.</p>
               </div>
-              <div className="editor-heading-badge"><span>✦</span> Beginner friendly</div>
+              <div className="editor-heading-badge"><span>âœ¦</span> Beginner friendly</div>
             </div>
 
             <section className="editor-card">
               <div className="editor-toolbar">
                 <div className="file-tab"><span className="cpp-icon">C++</span> main.cpp <span className="file-dot" /></div>
                 <div className="editor-toolbar-actions">
-                  <button type="button" className="tool-button" onClick={resetCode}>↺ <span>Reset</span></button>
-                  <button type="button" className="tool-button" onClick={copyCode}>{copied ? '✓' : '▢'} <span>{copied ? 'Copied' : 'Copy'}</span></button>
+                  <button type="button" className="tool-button" onClick={resetCode}>â†º <span>Reset</span></button>
+                  <button type="button" className="tool-button" onClick={copyCode}>{copied ? 'âœ“' : 'â–¢'} <span>{copied ? 'Copied' : 'Copy'}</span></button>
                   <select className="example-select" aria-label="Load a C++ example" value={selectedExample} onChange={(event) => loadExample(event.target.value)}>
                     <option value="starter">Examples</option>
                     <option value="ifElse">If / Else</option>
                     <option value="forLoop">For loop</option>
                     <option value="whileLoop">While loop</option>
                   </select>
-                  <button type="button" className="visualize-button" onClick={openVisualizer}>◇ Visualize</button>
-                  <button type="button" className="run-button" onClick={runCode} disabled={isRunning}>{isRunning ? '◌ Running...' : '▶ Run code'}</button>
+                  <button type="button" className="visualize-button" onClick={openVisualizer}>â—‡ Visualize</button>
+                  <button type="button" className="run-button" onClick={runCode} disabled={isRunning}>{isRunning ? 'â—Œ Running...' : 'â–¶ Run code'}</button>
                 </div>
               </div>
 
@@ -2406,12 +2406,12 @@ function App() {
                 </div>
               </div>
 
-              <div className="editor-statusbar"><span>● Ready</span><span>{words} words</span><span>Ln {lines}, Col 1</span></div>
+              <div className="editor-statusbar"><span>â— Ready</span><span>{words} words</span><span>Ln {lines}, Col 1</span></div>
             </section>
 
             <section className="stdin-card">
               <div className="stdin-heading">
-                <div><strong>Program input</strong><span>Optional · Used when your code reads with cin</span></div>
+                <div><strong>Program input</strong><span>Optional Â· Used when your code reads with cin</span></div>
                 <span className="stdin-tag">STDIN</span>
               </div>
               <textarea
@@ -2426,19 +2426,19 @@ function App() {
 
             <section className="output-card">
               <div className="output-tabs">
-                <button type="button" className={activeTab === 'output' ? 'output-tab active' : 'output-tab'} onClick={() => setActiveTab('output')}>▣ Output</button>
-                <button type="button" className={activeTab === 'help' ? 'output-tab active' : 'output-tab'} onClick={() => setActiveTab('help')}>✦ Code overview</button>
-                <button type="button" className={activeTab === 'visualizer' ? 'output-tab active' : 'output-tab'} onClick={openVisualizer}>◇ Visualizer</button>
-                <button type="button" className={activeTab === 'arrays' ? 'output-tab active' : 'output-tab'} onClick={openArrayLab}>▦ Array Lab</button>
-                <button type="button" className={activeTab === 'linear' ? 'output-tab active' : 'output-tab'} onClick={openStackQueue}>⇅ Stack &amp; Queue</button>
-                <button type="button" className={activeTab === 'linked' ? 'output-tab active' : 'output-tab'} onClick={openLinkedList}>↗ Linked List</button>
-                <button type="button" className={activeTab === 'tree' ? 'output-tab active' : 'output-tab'} onClick={openTreeLab}>🌳 Binary Tree</button>
-                <button type="button" className={activeTab === 'teacher' ? 'output-tab active' : 'output-tab'} onClick={openTeacher}>✦ AI Teacher</button>
-                <button type="button" className={activeTab === 'quiz' ? 'output-tab active' : 'output-tab'} onClick={openQuiz}>📝 Quiz</button>
-                <button type="button" className={activeTab === 'challenge' ? 'output-tab active' : 'output-tab'} onClick={openChallengeArena}>🏁 Challenges</button>
-                <button type="button" className={activeTab === 'progress' ? 'output-tab active' : 'output-tab'} onClick={openProgress}>📊 Progress</button>
-                <button type="button" className={activeTab === 'snippets' ? 'output-tab active' : 'output-tab'} onClick={openSnippets}>📚 Snippets</button>
-                <button type="button" className={activeTab === 'account' ? 'output-tab active' : 'output-tab'} onClick={openAccount}>☁ Account</button>
+                <button type="button" className={activeTab === 'output' ? 'output-tab active' : 'output-tab'} onClick={() => setActiveTab('output')}>â–£ Output</button>
+                <button type="button" className={activeTab === 'help' ? 'output-tab active' : 'output-tab'} onClick={() => setActiveTab('help')}>âœ¦ Code overview</button>
+                <button type="button" className={activeTab === 'visualizer' ? 'output-tab active' : 'output-tab'} onClick={openVisualizer}>â—‡ Visualizer</button>
+                <button type="button" className={activeTab === 'arrays' ? 'output-tab active' : 'output-tab'} onClick={openArrayLab}>â–¦ Array Lab</button>
+                <button type="button" className={activeTab === 'linear' ? 'output-tab active' : 'output-tab'} onClick={openStackQueue}>â‡… Stack &amp; Queue</button>
+                <button type="button" className={activeTab === 'linked' ? 'output-tab active' : 'output-tab'} onClick={openLinkedList}>â†— Linked List</button>
+                <button type="button" className={activeTab === 'tree' ? 'output-tab active' : 'output-tab'} onClick={openTreeLab}>ðŸŒ³ Binary Tree</button>
+                <button type="button" className={activeTab === 'teacher' ? 'output-tab active' : 'output-tab'} onClick={openTeacher}>âœ¦ AI Teacher</button>
+                <button type="button" className={activeTab === 'quiz' ? 'output-tab active' : 'output-tab'} onClick={openQuiz}>ðŸ“ Quiz</button>
+                <button type="button" className={activeTab === 'challenge' ? 'output-tab active' : 'output-tab'} onClick={openChallengeArena}>ðŸ Challenges</button>
+                <button type="button" className={activeTab === 'progress' ? 'output-tab active' : 'output-tab'} onClick={openProgress}>ðŸ“Š Progress</button>
+                <button type="button" className={activeTab === 'snippets' ? 'output-tab active' : 'output-tab'} onClick={openSnippets}>ðŸ“š Snippets</button>
+                <button type="button" className={activeTab === 'account' ? 'output-tab active' : 'output-tab'} onClick={openAccount}>â˜ Account</button>
                 <span className="output-coming">JDoodle C++ compiler</span>
               </div>
               {activeTab === 'output' ? (
@@ -2455,7 +2455,7 @@ function App() {
                   </div>
                 ) : (
                   <div className="output-content">
-                    <div className="terminal-icon">›_</div>
+                    <div className="terminal-icon">â€º_</div>
                     <div><strong>{isRunning ? 'Running your program...' : 'Ready when you are.'}</strong><p>{notice}</p></div>
                   </div>
                 )
@@ -2500,10 +2500,10 @@ function App() {
                     </div>
                   )}
                   <div className="visualizer-controls">
-                    <button type="button" onClick={() => setVisualIndex(0)} disabled={safeVisualIndex === 0}>↺ Restart</button>
+                    <button type="button" onClick={() => setVisualIndex(0)} disabled={safeVisualIndex === 0}>â†º Restart</button>
                     <div>
-                      <button type="button" onClick={() => setVisualIndex((value) => Math.max(0, value - 1))} disabled={safeVisualIndex === 0}>← Previous</button>
-                      <button className="visualizer-next" type="button" onClick={() => setVisualIndex((value) => Math.min(visualTrace.steps.length - 1, value + 1))} disabled={safeVisualIndex >= visualTrace.steps.length - 1}>Next step →</button>
+                      <button type="button" onClick={() => setVisualIndex((value) => Math.max(0, value - 1))} disabled={safeVisualIndex === 0}>â† Previous</button>
+                      <button className="visualizer-next" type="button" onClick={() => setVisualIndex((value) => Math.min(visualTrace.steps.length - 1, value + 1))} disabled={safeVisualIndex >= visualTrace.steps.length - 1}>Next step â†’</button>
                     </div>
                   </div>
                 </div>
@@ -2544,7 +2544,7 @@ function App() {
                         <input type="number" value={arrayValueInput} onChange={(event) => setArrayValueInput(event.target.value)} />
                       </label>
                     )}
-                    <button className="array-build-button" type="button" onClick={buildArrayAnimation}>Build animation <span>→</span></button>
+                    <button className="array-build-button" type="button" onClick={buildArrayAnimation}>Build animation <span>â†’</span></button>
                   </div>
 
                   {arrayError && <div className="array-error" role="alert">{arrayError}</div>}
@@ -2559,19 +2559,19 @@ function App() {
                       {currentArrayFrame.values.map((value, index) => (
                         <div className={`array-cell ${currentArrayFrame.activeIndex === index ? 'array-cell-active' : ''} ${value === null ? 'array-cell-empty' : ''}`} key={`${index}-${value ?? 'empty'}`}>
                           <span className="array-cell-index">index {index}</span>
-                          <strong>{value === null ? '·' : value}</strong>
+                          <strong>{value === null ? 'Â·' : value}</strong>
                         </div>
                       ))}
                     </div>
                     <div className="array-stage-message">
-                      <span>✦</span>
+                      <span>âœ¦</span>
                       <p>{currentArrayFrame.message}</p>
                     </div>
                     <div className="array-lab-controls">
-                      <button type="button" onClick={() => setArrayStep(0)} disabled={arrayStep === 0}>↺ Restart</button>
+                      <button type="button" onClick={() => setArrayStep(0)} disabled={arrayStep === 0}>â†º Restart</button>
                       <div>
-                        <button type="button" onClick={() => setArrayStep((step) => Math.max(0, step - 1))} disabled={arrayStep === 0}>← Previous</button>
-                        <button className="array-next-button" type="button" onClick={() => setArrayStep((step) => Math.min(arrayFrames.length - 1, step + 1))} disabled={arrayStep >= arrayFrames.length - 1}>Next step →</button>
+                        <button type="button" onClick={() => setArrayStep((step) => Math.max(0, step - 1))} disabled={arrayStep === 0}>â† Previous</button>
+                        <button className="array-next-button" type="button" onClick={() => setArrayStep((step) => Math.min(arrayFrames.length - 1, step + 1))} disabled={arrayStep >= arrayFrames.length - 1}>Next step â†’</button>
                       </div>
                     </div>
                   </div>
@@ -2630,7 +2630,7 @@ function App() {
                         <input type="number" value={linearValueInput} onChange={(event) => setLinearValueInput(event.target.value)} />
                       </label>
                     )}
-                    <button className="linear-build-button" type="button" onClick={buildLinearAnimation}>Build animation <span>→</span></button>
+                    <button className="linear-build-button" type="button" onClick={buildLinearAnimation}>Build animation <span>â†’</span></button>
                   </div>
 
                   {linearError && <div className="linear-error" role="alert">{linearError}</div>}
@@ -2644,13 +2644,13 @@ function App() {
                     <div className="linear-end-labels">
                       {linearStructure === 'stack' ? (
                         <>
-                          <span>TOP ↓</span>
+                          <span>TOP â†“</span>
                           <span>BASE</span>
                         </>
                       ) : (
                         <>
-                          <span>FRONT ←</span>
-                          <span>REAR →</span>
+                          <span>FRONT â†</span>
+                          <span>REAR â†’</span>
                         </>
                       )}
                     </div>
@@ -2669,20 +2669,20 @@ function App() {
                       )}
                     </div>
                     <div className="linear-stage-message">
-                      <span>✦</span><p>{currentLinearFrame.message}</p>
+                      <span>âœ¦</span><p>{currentLinearFrame.message}</p>
                     </div>
                     <div className="linear-controls">
-                      <button type="button" disabled={linearStep === 0} onClick={() => setLinearStep(0)}>↺ Restart</button>
+                      <button type="button" disabled={linearStep === 0} onClick={() => setLinearStep(0)}>â†º Restart</button>
                       <div>
-                        <button type="button" disabled={linearStep === 0} onClick={() => setLinearStep((step) => Math.max(0, step - 1))}>← Previous</button>
-                        <button className="linear-next-button" type="button" disabled={linearStep >= linearFrames.length - 1} onClick={() => setLinearStep((step) => Math.min(linearFrames.length - 1, step + 1))}>Next step →</button>
+                        <button type="button" disabled={linearStep === 0} onClick={() => setLinearStep((step) => Math.max(0, step - 1))}>â† Previous</button>
+                        <button className="linear-next-button" type="button" disabled={linearStep >= linearFrames.length - 1} onClick={() => setLinearStep((step) => Math.min(linearFrames.length - 1, step + 1))}>Next step â†’</button>
                       </div>
                     </div>
                   </div>
 
                   <div className="linear-comparison">
-                    <div><strong>Stack · LIFO</strong><span>Last In, First Out. Push and Pop happen at the top.</span></div>
-                    <div><strong>Queue · FIFO</strong><span>First In, First Out. Enqueue at the rear, Dequeue from the front.</span></div>
+                    <div><strong>Stack Â· LIFO</strong><span>Last In, First Out. Push and Pop happen at the top.</span></div>
+                    <div><strong>Queue Â· FIFO</strong><span>First In, First Out. Enqueue at the rear, Dequeue from the front.</span></div>
                   </div>
                 </div>
               ) : activeTab === 'linked' ? (
@@ -2693,7 +2693,7 @@ function App() {
                       <strong>Singly Linked List Playground</strong>
                       <p>See how nodes connect through next pointers, and how links change during operations.</p>
                     </div>
-                    <span className="linked-lab-badge">HEAD → NULL</span>
+                    <span className="linked-lab-badge">HEAD â†’ NULL</span>
                   </div>
 
                   <div className="linked-configuration">
@@ -2726,7 +2726,7 @@ function App() {
                         <input type="number" value={linkedValueInput} onChange={(event) => setLinkedValueInput(event.target.value)} />
                       </label>
                     )}
-                    <button className="linked-build-button" type="button" onClick={buildLinkedListAnimation}>Build animation <span>→</span></button>
+                    <button className="linked-build-button" type="button" onClick={buildLinkedListAnimation}>Build animation <span>â†’</span></button>
                   </div>
 
                   {linkedError && <div className="linked-error" role="alert">{linkedError}</div>}
@@ -2743,21 +2743,21 @@ function App() {
                         <div className="linked-node-group" key={`${index}-${value}`}>
                           <div className={`linked-node ${currentLinkedFrame.activeIndex === index ? 'linked-node-active' : ''}`}>
                             <div className="linked-node-value">{value}</div>
-                            <div className="linked-node-next">next <span>↗</span></div>
+                            <div className="linked-node-next">next <span>â†—</span></div>
                             <small>Node {index}</small>
                           </div>
-                          {index < currentLinkedFrame.values.length - 1 && <div className="linked-arrow">→</div>}
+                          {index < currentLinkedFrame.values.length - 1 && <div className="linked-arrow">â†’</div>}
                         </div>
                       ))}
                       <div className="linked-null">NULL</div>
-                      {currentLinkedFrame.values.length === 0 && <div className="linked-empty">HEAD → NULL (empty list)</div>}
+                      {currentLinkedFrame.values.length === 0 && <div className="linked-empty">HEAD â†’ NULL (empty list)</div>}
                     </div>
-                    <div className="linked-stage-message"><span>✦</span><p>{currentLinkedFrame.message}</p></div>
+                    <div className="linked-stage-message"><span>âœ¦</span><p>{currentLinkedFrame.message}</p></div>
                     <div className="linked-controls">
-                      <button type="button" disabled={linkedStep === 0} onClick={() => setLinkedStep(0)}>↺ Restart</button>
+                      <button type="button" disabled={linkedStep === 0} onClick={() => setLinkedStep(0)}>â†º Restart</button>
                       <div>
-                        <button type="button" disabled={linkedStep === 0} onClick={() => setLinkedStep((step) => Math.max(0, step - 1))}>← Previous</button>
-                        <button className="linked-next-button" type="button" disabled={linkedStep >= linkedFrames.length - 1} onClick={() => setLinkedStep((step) => Math.min(linkedFrames.length - 1, step + 1))}>Next step →</button>
+                        <button type="button" disabled={linkedStep === 0} onClick={() => setLinkedStep((step) => Math.max(0, step - 1))}>â† Previous</button>
+                        <button className="linked-next-button" type="button" disabled={linkedStep >= linkedFrames.length - 1} onClick={() => setLinkedStep((step) => Math.min(linkedFrames.length - 1, step + 1))}>Next step â†’</button>
                       </div>
                     </div>
                   </div>
@@ -2791,8 +2791,8 @@ function App() {
                       {visibleChallenges.map((challenge) => (
                         <button type="button" key={challenge.id} className={`challenge-list-item ${selectedChallengeId === challenge.id ? 'challenge-list-item-active' : ''}`} onClick={() => selectCodingChallenge(challenge)}>
                           <span className={`challenge-level-dot challenge-level-${challenge.difficulty.toLowerCase()}`} />
-                          <span className="challenge-list-copy"><strong>{challenge.title}</strong><small>{challenge.topic} · {challenge.minutes} min</small></span>
-                          <span className="challenge-list-arrow">›</span>
+                          <span className="challenge-list-copy"><strong>{challenge.title}</strong><small>{challenge.topic} Â· {challenge.minutes} min</small></span>
+                          <span className="challenge-list-arrow">â€º</span>
                         </button>
                       ))}
                     </div>
@@ -2824,12 +2824,12 @@ function App() {
                         <div><span>EXPECTED OUTPUT</span><pre>{selectedChallenge.sampleOutput}</pre></div>
                       </div>
 
-                      <div className="challenge-hint"><span>💡 Hint</span><p>{selectedChallenge.hint}</p></div>
+                      <div className="challenge-hint"><span>ðŸ’¡ Hint</span><p>{selectedChallenge.hint}</p></div>
 
                       <div className="challenge-actions">
-                        <button type="button" className="challenge-secondary-button" onClick={startCodingChallenge}>↻ Load starter &amp; start</button>
+                        <button type="button" className="challenge-secondary-button" onClick={startCodingChallenge}>â†» Load starter &amp; start</button>
                         <button type="button" className="challenge-secondary-button" onClick={resetCodingChallenge}>Reset</button>
-                        <button type="button" className="challenge-submit-button" onClick={submitCodingChallenge} disabled={!challengeTimerRunning || challengeChecking || challengeSecondsLeft === 0}>{challengeChecking ? '◌ Checking…' : `▶ Run ${selectedChallenge.tests.length} tests`}</button>
+                        <button type="button" className="challenge-submit-button" onClick={submitCodingChallenge} disabled={!challengeTimerRunning || challengeChecking || challengeSecondsLeft === 0}>{challengeChecking ? 'â—Œ Checkingâ€¦' : `â–¶ Run ${selectedChallenge.tests.length} tests`}</button>
                       </div>
 
                       <div className={`challenge-status ${challengeStatus.startsWith('All ') ? 'challenge-status-success' : ''}`}>{challengeStatus}</div>
@@ -2838,8 +2838,8 @@ function App() {
                           <div className="challenge-results-heading"><strong>Test results</strong><span>{challengePassedCount}/{challengeTestResults.length} passed</span></div>
                           {challengeTestResults.map((result) => (
                             <div className={`challenge-test-row ${result.passed ? 'challenge-test-passed' : 'challenge-test-failed'}`} key={result.index}>
-                              <div><strong>{result.passed ? '✓' : '×'} Test {result.index}</strong><span>{result.passed ? 'Passed' : 'Failed'}</span></div>
-                              {result.error ? <small>{result.error}</small> : <small>Expected: {result.expected} · Your output: {result.actual.trim() || '(no output)'}</small>}
+                              <div><strong>{result.passed ? 'âœ“' : 'Ã—'} Test {result.index}</strong><span>{result.passed ? 'Passed' : 'Failed'}</span></div>
+                              {result.error ? <small>{result.error}</small> : <small>Expected: {result.expected} Â· Your output: {result.actual.trim() || '(no output)'}</small>}
                             </div>
                           ))}
                         </div>
@@ -2861,8 +2861,8 @@ function App() {
 
                   <div className="snippets-toolbar">
                     <label className="snippets-search">
-                      <span>⌕</span>
-                      <input value={snippetSearch} onChange={(event) => setSnippetSearch(event.target.value)} placeholder="Search snippets, topics or concepts…" />
+                      <span>âŒ•</span>
+                      <input value={snippetSearch} onChange={(event) => setSnippetSearch(event.target.value)} placeholder="Search snippets, topics or conceptsâ€¦" />
                     </label>
                     <label className="snippets-category-select">Filter
                       <select value={snippetCategory} onChange={(event) => setSnippetCategory(event.target.value as SnippetCategory)}>
@@ -2882,12 +2882,12 @@ function App() {
                     <div className="snippets-list">
                       <div className="snippets-list-heading"><strong>Examples</strong><span>{visibleSnippets.length} found</span></div>
                       {visibleSnippets.length === 0 ? (
-                        <div className="snippets-no-results"><span>⌕</span><strong>No snippets found</strong><p>Try another search or choose a different category.</p></div>
+                        <div className="snippets-no-results"><span>âŒ•</span><strong>No snippets found</strong><p>Try another search or choose a different category.</p></div>
                       ) : visibleSnippets.map((snippet) => (
                         <button type="button" key={snippet.id} className={`snippet-list-item ${selectedSnippet?.id === snippet.id ? 'snippet-list-item-active' : ''}`} onClick={() => setSelectedSnippetId(snippet.id)}>
-                          <span className="snippet-item-icon">{snippet.personal ? '★' : '⌘'}</span>
-                          <span className="snippet-item-copy"><strong>{snippet.title}</strong><small>{snippet.category}{snippet.personal ? ' · Saved' : ''}</small></span>
-                          <span className="snippet-item-arrow">›</span>
+                          <span className="snippet-item-icon">{snippet.personal ? 'â˜…' : 'âŒ˜'}</span>
+                          <span className="snippet-item-copy"><strong>{snippet.title}</strong><small>{snippet.category}{snippet.personal ? ' Â· Saved' : ''}</small></span>
+                          <span className="snippet-item-arrow">â€º</span>
                         </button>
                       ))}
                     </div>
@@ -2895,22 +2895,22 @@ function App() {
                     {selectedSnippet ? (
                       <div className="snippet-detail">
                         <div className="snippet-detail-heading">
-                          <div><span>{selectedSnippet.category.toUpperCase()}{selectedSnippet.personal ? ' · YOUR SNIPPET' : ' · BUILT-IN'}</span><strong>{selectedSnippet.title}</strong><p>{selectedSnippet.description}</p></div>
+                          <div><span>{selectedSnippet.category.toUpperCase()}{selectedSnippet.personal ? ' Â· YOUR SNIPPET' : ' Â· BUILT-IN'}</span><strong>{selectedSnippet.title}</strong><p>{selectedSnippet.description}</p></div>
                           <div className="snippet-detail-actions">
                             <button type="button" onClick={() => copySnippet(selectedSnippet)}>Copy code</button>
-                            <button type="button" className="snippet-insert-button" onClick={() => insertSnippet(selectedSnippet)}>Insert into editor ↗</button>
+                            <button type="button" className="snippet-insert-button" onClick={() => insertSnippet(selectedSnippet)}>Insert into editor â†—</button>
                           </div>
                         </div>
                         <pre className="snippet-code-preview" tabIndex={0}><code>{selectedSnippet.code}</code></pre>
                         {selectedSnippet.personal && <button type="button" className="snippet-delete-button" onClick={() => deletePersonalSnippet(selectedSnippet)}>Delete this saved snippet</button>}
                       </div>
                     ) : (
-                      <div className="snippet-detail snippet-detail-empty"><span>📚</span><strong>Select a snippet to preview it.</strong></div>
+                      <div className="snippet-detail snippet-detail-empty"><span>ðŸ“š</span><strong>Select a snippet to preview it.</strong></div>
                     )}
                   </div>
 
                   <div className="snippet-save-card">
-                    <div><span className="snippet-save-icon">＋</span><div><strong>Save your current code</strong><p>Store the code in the editor as a personal snippet for later use.</p></div></div>
+                    <div><span className="snippet-save-icon">ï¼‹</span><div><strong>Save your current code</strong><p>Store the code in the editor as a personal snippet for later use.</p></div></div>
                     <div className="snippet-save-fields">
                       <input value={snippetTitle} onChange={(event) => setSnippetTitle(event.target.value)} maxLength={60} placeholder="Snippet title (e.g. My sorting example)" />
                       <select value={snippetSaveCategory} onChange={(event) => setSnippetSaveCategory(event.target.value as Exclude<SnippetCategory, 'All snippets' | 'My Snippets'>)}>
@@ -2919,7 +2919,7 @@ function App() {
                       <button type="button" onClick={saveCurrentSnippet}>Save current code</button>
                     </div>
                   </div>
-                  <div className="snippets-notice"><span>🔒</span> {snippetNotice} Personal snippets stay on this browser unless you sign in and enable your private Supabase sync. They are never sent to Ollama or JDoodle.</div>
+                  <div className="snippets-notice"><span>ðŸ”’</span> {snippetNotice} Personal snippets stay on this browser unless you sign in and enable your private Supabase sync. They are never sent to Ollama or JDoodle.</div>
                 </div>
               ) : activeTab === 'account' ? (
                 <div className="account-panel">
@@ -2929,12 +2929,12 @@ function App() {
                       <strong>Sign in &amp; sync</strong>
                       <p>Keep your personal snippets and learning progress connected to your account on different devices.</p>
                     </div>
-                    <span className="account-cloud-icon">☁</span>
+                    <span className="account-cloud-icon">â˜</span>
                   </div>
 
                   {!supabaseConfigured ? (
                     <div className="account-setup-card">
-                      <span className="account-setup-icon">⚙</span>
+                      <span className="account-setup-icon">âš™</span>
                       <div>
                         <strong>Connect your Supabase project first</strong>
                         <p>Install the Supabase client, add your Project URL and public publishable key to <code>.env.local</code>, then run the SQL setup included with this update.</p>
@@ -2945,18 +2945,18 @@ function App() {
                       <div className="account-profile-row">
                         <span className="account-avatar">{(session.user.email || 'U').slice(0, 1).toUpperCase()}</span>
                         <div><strong>{session.user.email}</strong><small>Signed in to CodeLens AI</small></div>
-                        <span className={`cloud-status-pill ${cloudStatus}`}>{cloudStatus === 'synced' ? '● Synced' : cloudStatus === 'syncing' ? '◌ Syncing' : cloudStatus === 'loading' ? '◌ Loading' : cloudStatus === 'error' ? '● Attention' : '● Local'}</span>
+                        <span className={`cloud-status-pill ${cloudStatus}`}>{cloudStatus === 'synced' ? 'â— Synced' : cloudStatus === 'syncing' ? 'â—Œ Syncing' : cloudStatus === 'loading' ? 'â—Œ Loading' : cloudStatus === 'error' ? 'â— Attention' : 'â— Local'}</span>
                       </div>
                       <div className="account-sync-summary">
                         <div><span>PERSONAL SNIPPETS</span><strong>{personalSnippets.length}</strong></div>
                         <div><span>LEARNING RECORDS</span><strong>{progressRecords.length}</strong></div>
                       </div>
                       <div className="account-sync-copy">
-                        <strong>{cloudStatus === 'synced' ? 'Your cloud data is up to date.' : cloudStatus === 'syncing' ? 'Saving your latest changes…' : cloudStatus === 'loading' ? 'Loading your account data…' : cloudStatus === 'error' ? 'Cloud sync needs attention.' : 'Waiting for cloud sync setup.'}</strong>
+                        <strong>{cloudStatus === 'synced' ? 'Your cloud data is up to date.' : cloudStatus === 'syncing' ? 'Saving your latest changesâ€¦' : cloudStatus === 'loading' ? 'Loading your account dataâ€¦' : cloudStatus === 'error' ? 'Cloud sync needs attention.' : 'Waiting for cloud sync setup.'}</strong>
                         <span>{lastCloudSync ? `Last sync: ${new Date(lastCloudSync).toLocaleString()}` : 'Your changes are also kept in this browser.'}</span>
                       </div>
                       <div className="account-actions">
-                        <button type="button" className="account-sync-button" onClick={syncCloudNow} disabled={cloudStatus === 'loading' || cloudStatus === 'syncing'}>↻ Sync now</button>
+                        <button type="button" className="account-sync-button" onClick={syncCloudNow} disabled={cloudStatus === 'loading' || cloudStatus === 'syncing'}>â†» Sync now</button>
                         <button type="button" className="account-signout-button" onClick={signOutAccount} disabled={authBusy}>Sign out</button>
                       </div>
                     </div>
@@ -2969,14 +2969,14 @@ function App() {
                       <form className="account-auth-form" onSubmit={submitAccountAuth}>
                         <label>Email address<input type="email" autoComplete="email" required value={authEmail} onChange={(event) => setAuthEmail(event.target.value)} placeholder="you@example.com" /></label>
                         <label>Password<input type="password" autoComplete={authMode === 'signup' ? 'new-password' : 'current-password'} minLength={6} required value={authPassword} onChange={(event) => setAuthPassword(event.target.value)} placeholder="At least 6 characters" /></label>
-                        <button type="submit" className="account-sync-button" disabled={authBusy}>{authBusy ? 'Please wait…' : authMode === 'signup' ? 'Create my account' : 'Sign in securely'}</button>
+                        <button type="submit" className="account-sync-button" disabled={authBusy}>{authBusy ? 'Please waitâ€¦' : authMode === 'signup' ? 'Create my account' : 'Sign in securely'}</button>
                       </form>
                       <p className="account-auth-footnote">Your email and password are handled by Supabase Auth. CodeLens never stores your password in its own database.</p>
                     </div>
                   )}
 
                   {accountNotice && <div className={`account-notice ${cloudStatus === 'error' ? 'account-notice-warning' : ''}`} role="status">{accountNotice}</div>}
-                  <div className="account-security-note"><span>🔐</span><div><strong>Private to your account</strong><p>Row Level Security makes each account access only its own saved snippets and learning history. Your C++ editor contents and AI Teacher conversations are not included in cloud sync.</p></div></div>
+                  <div className="account-security-note"><span>ðŸ”</span><div><strong>Private to your account</strong><p>Row Level Security makes each account access only its own saved snippets and learning history. Your C++ editor contents and AI Teacher conversations are not included in cloud sync.</p></div></div>
                 </div>
               ) : activeTab === 'progress' ? (
                 <div className="progress-panel">
@@ -2992,13 +2992,13 @@ function App() {
                   <div className="progress-stat-grid">
                     <article className="progress-stat-card"><span>QUIZ ATTEMPTS</span><strong>{progressSummary.quizAttempts}</strong><small>Completed quizzes</small></article>
                     <article className="progress-stat-card"><span>CHALLENGES SOLVED</span><strong>{progressSummary.solvedChallenges}</strong><small>{progressSummary.challengeAttempts} successful submissions</small></article>
-                    <article className="progress-stat-card"><span>QUIZ ACCURACY</span><strong>{progressSummary.quizAccuracy === null ? '—' : `${progressSummary.quizAccuracy}%`}</strong><small>Across completed quizzes</small></article>
+                    <article className="progress-stat-card"><span>QUIZ ACCURACY</span><strong>{progressSummary.quizAccuracy === null ? 'â€”' : `${progressSummary.quizAccuracy}%`}</strong><small>Across completed quizzes</small></article>
                     <article className="progress-stat-card"><span>LEARNING STREAK</span><strong>{progressSummary.streak}<em> days</em></strong><small>Consecutive active days</small></article>
                   </div>
 
                   {progressRecords.length === 0 ? (
                     <div className="progress-empty-state">
-                      <span>📈</span>
+                      <span>ðŸ“ˆ</span>
                       <strong>Your progress will appear here.</strong>
                       <p>Complete a quiz or pass every test in a coding challenge. Your scores and activity will be collected automatically.</p>
                       <div><button type="button" onClick={openQuiz}>Start a quiz</button><button type="button" onClick={openChallengeArena}>Try a challenge</button></div>
@@ -3010,7 +3010,7 @@ function App() {
                         <div className="progress-topic-list">
                           {progressSummary.topicStats.map((item) => (
                             <div className="progress-topic-row" key={item.topic}>
-                              <div className="progress-topic-meta"><strong>{item.topic}</strong><span>{item.accuracy}% · {item.attempts} {item.attempts === 1 ? 'activity' : 'activities'}</span></div>
+                              <div className="progress-topic-meta"><strong>{item.topic}</strong><span>{item.accuracy}% Â· {item.attempts} {item.attempts === 1 ? 'activity' : 'activities'}</span></div>
                               <div className="progress-bar-track"><span style={{ width: `${item.accuracy}%` }} /></div>
                             </div>
                           ))}
@@ -3022,8 +3022,8 @@ function App() {
                         <div className="progress-activity-list">
                           {progressRecords.slice(0, 8).map((record) => (
                             <article className="progress-activity-item" key={record.id}>
-                              <span className={`progress-activity-icon ${record.kind === 'Quiz' ? 'progress-icon-quiz' : 'progress-icon-challenge'}`}>{record.kind === 'Quiz' ? '📝' : '🏁'}</span>
-                              <div className="progress-activity-copy"><strong>{record.title}</strong><small>{record.kind}{record.difficulty ? ` · ${record.difficulty}` : ''} · {new Date(record.completedAt).toLocaleDateString()}</small></div>
+                              <span className={`progress-activity-icon ${record.kind === 'Quiz' ? 'progress-icon-quiz' : 'progress-icon-challenge'}`}>{record.kind === 'Quiz' ? 'ðŸ“' : 'ðŸ'}</span>
+                              <div className="progress-activity-copy"><strong>{record.title}</strong><small>{record.kind}{record.difficulty ? ` Â· ${record.difficulty}` : ''} Â· {new Date(record.completedAt).toLocaleDateString()}</small></div>
                               <b>{record.score}/{record.total}</b>
                             </article>
                           ))}
@@ -3031,7 +3031,7 @@ function App() {
                       </section>
                     </div>
                   )}
-                  <div className="progress-privacy-note"><span>🔒</span> Learning progress is stored on this browser and can sync to your private Supabase account when you sign in. It is not sent to Ollama or JDoodle.</div>
+                  <div className="progress-privacy-note"><span>ðŸ”’</span> Learning progress is stored on this browser and can sync to your private Supabase account when you sign in. It is not sent to Ollama or JDoodle.</div>
                 </div>
               ) : activeTab === 'quiz' ? (
                 <div className="quiz-panel">
@@ -3043,10 +3043,10 @@ function App() {
                     </div>
                     <label className="quiz-topic-select">Quiz topic
                       <select value={quizTopic} onChange={(event) => changeQuizTopic(event.target.value as QuizTopic)}>
-                        <option value="All topics">All topics · 15 questions</option>
-                        <option value="C++ Basics">C++ Basics · 5 questions</option>
-                        <option value="Control Flow">Control Flow · 5 questions</option>
-                        <option value="Data Structures">Data Structures · 5 questions</option>
+                        <option value="All topics">All topics Â· 15 questions</option>
+                        <option value="C++ Basics">C++ Basics Â· 5 questions</option>
+                        <option value="Control Flow">Control Flow Â· 5 questions</option>
+                        <option value="Data Structures">Data Structures Â· 5 questions</option>
                       </select>
                     </label>
                   </div>
@@ -3067,7 +3067,7 @@ function App() {
                           <div className="quiz-kicker">QUIZ COMPLETE</div>
                           <h3>{quizScore} out of {quizQuestionsForTopic.length} correct</h3>
                           <p>{quizScore === quizQuestionsForTopic.length ? 'Excellent work! You got every answer right.' : quizScore >= Math.ceil(quizQuestionsForTopic.length * 0.6) ? 'Good effort! Review the explanations to strengthen your concepts.' : 'Keep practicing. Read the explanations and try the quiz again.'}</p>
-                          <button type="button" className="quiz-primary-button" onClick={restartQuiz}>↺ Try again</button>
+                          <button type="button" className="quiz-primary-button" onClick={restartQuiz}>â†º Try again</button>
                         </div>
                       </div>
                       <div className="quiz-review-heading"><strong>Answer review</strong><span>Correct answers and explanations</span></div>
@@ -3099,30 +3099,30 @@ function App() {
                             <button key={`${currentQuizQuestion.id}-${index}`} type="button" className={`quiz-option${optionClass}`} onClick={() => answerQuizQuestion(index)} disabled={isAnswered}>
                               <span className="quiz-option-letter">{String.fromCharCode(65 + index)}</span>
                               <span>{option}</span>
-                              {isAnswered && index === currentQuizQuestion.correct && <b>✓</b>}
-                              {isAnswered && index === selected && index !== currentQuizQuestion.correct && <b>×</b>}
+                              {isAnswered && index === currentQuizQuestion.correct && <b>âœ“</b>}
+                              {isAnswered && index === selected && index !== currentQuizQuestion.correct && <b>Ã—</b>}
                             </button>
                           )
                         })}
                       </div>
                       {quizAnswers[currentQuizQuestion.id] !== undefined && (
                         <div className={`quiz-feedback ${quizAnswers[currentQuizQuestion.id] === currentQuizQuestion.correct ? 'quiz-feedback-correct' : 'quiz-feedback-wrong'}`}>
-                          <strong>{quizAnswers[currentQuizQuestion.id] === currentQuizQuestion.correct ? '✓ That is correct!' : '✕ Not quite. Here is the correct answer.'}</strong>
+                          <strong>{quizAnswers[currentQuizQuestion.id] === currentQuizQuestion.correct ? 'âœ“ That is correct!' : 'âœ• Not quite. Here is the correct answer.'}</strong>
                           <p>{currentQuizQuestion.explanation}</p>
                         </div>
                       )}
                       <div className="quiz-navigation">
-                        <button type="button" className="quiz-secondary-button" onClick={() => setQuizIndex((index) => Math.max(0, index - 1))} disabled={quizIndex === 0}>← Previous</button>
+                        <button type="button" className="quiz-secondary-button" onClick={() => setQuizIndex((index) => Math.max(0, index - 1))} disabled={quizIndex === 0}>â† Previous</button>
                         <span>{quizAnsweredCount} of {quizQuestionsForTopic.length} answered</span>
                         <button type="button" className="quiz-primary-button" onClick={moveToNextQuizQuestion} disabled={quizAnswers[currentQuizQuestion.id] === undefined}>
-                          {quizIndex === quizQuestionsForTopic.length - 1 ? 'Finish quiz ✓' : 'Next question →'}
+                          {quizIndex === quizQuestionsForTopic.length - 1 ? 'Finish quiz âœ“' : 'Next question â†’'}
                         </button>
                       </div>
                     </div>
                   ) : (
                     <div className="quiz-empty">No questions are available for this topic.</div>
                   )}
-                  <div className="quiz-learning-note"><span>✦</span> This quiz is built into CodeLens AI. Your answers stay in this browser session and are not sent to Ollama or JDoodle.</div>
+                  <div className="quiz-learning-note"><span>âœ¦</span> This quiz is built into CodeLens AI. Your answers stay in this browser session and are not sent to Ollama or JDoodle.</div>
                 </div>
               ) : activeTab === 'teacher' ? (
                 <div className="teacher-panel">
@@ -3144,15 +3144,15 @@ function App() {
                   </div>
 
                   <div className="teacher-quick-prompts">
-                    <button type="button" disabled={isTeaching} onClick={() => askTeacher('Explain my current code step by step, including the important lines and variables.')}>✦ Explain this code</button>
-                    <button type="button" disabled={isTeaching} onClick={() => askTeacher('Review my current code for mistakes, bugs, and possible improvements. Explain how to fix each issue.')}>🐞 Find mistakes</button>
-                    <button type="button" disabled={isTeaching} onClick={() => askTeacher('Give me one beginner-friendly C++ practice question based on the concepts in my current code. Do not reveal the solution unless I ask.')}>✎ Give me practice</button>
+                    <button type="button" disabled={isTeaching} onClick={() => askTeacher('Explain my current code step by step, including the important lines and variables.')}>âœ¦ Explain this code</button>
+                    <button type="button" disabled={isTeaching} onClick={() => askTeacher('Review my current code for mistakes, bugs, and possible improvements. Explain how to fix each issue.')}>ðŸž Find mistakes</button>
+                    <button type="button" disabled={isTeaching} onClick={() => askTeacher('Give me one beginner-friendly C++ practice question based on the concepts in my current code. Do not reveal the solution unless I ask.')}>âœŽ Give me practice</button>
                   </div>
 
                   <div className="teacher-chat" aria-live="polite">
                     {teacherMessages.length === 0 ? (
                       <div className="teacher-empty">
-                        <span>✦</span>
+                        <span>âœ¦</span>
                         <strong>Let's understand your code.</strong>
                         <p>Choose a quick prompt above or ask your own question below. Your current editor code is included as context.</p>
                       </div>
@@ -3162,15 +3162,15 @@ function App() {
                         <p>{message.content}</p>
                       </div>
                     ))}
-                    {isTeaching && <div className="teacher-thinking"><span className="teacher-spinner" /> Thinking with your local model…</div>}
+                    {isTeaching && <div className="teacher-thinking"><span className="teacher-spinner" /> Thinking with your local modelâ€¦</div>}
                   </div>
 
                   {teacherError && <div className="teacher-error">{teacherError}</div>}
                   <form className="teacher-compose" onSubmit={(event) => { event.preventDefault(); void askTeacher() }}>
-                    <textarea value={teacherQuestion} onChange={(event) => setTeacherQuestion(event.target.value)} placeholder="Ask anything about C++ or your current code…" rows={3} disabled={isTeaching} />
-                    <button type="submit" disabled={isTeaching || !teacherQuestion.trim()}>{isTeaching ? 'Thinking…' : 'Ask Teacher ↗'}</button>
+                    <textarea value={teacherQuestion} onChange={(event) => setTeacherQuestion(event.target.value)} placeholder="Ask anything about C++ or your current codeâ€¦" rows={3} disabled={isTeaching} />
+                    <button type="submit" disabled={isTeaching || !teacherQuestion.trim()}>{isTeaching ? 'Thinkingâ€¦' : 'Ask Teacher â†—'}</button>
                   </form>
-                  <div className="teacher-privacy"><span>●</span> AI explanations run through Ollama on this PC. Run Code still uses the JDoodle cloud compiler.</div>
+                  <div className="teacher-privacy"><span>â—</span> AI explanations run through Ollama on this PC. Run Code still uses the JDoodle cloud compiler.</div>
                 </div>
               ) : (
                 <div className="tree-lab-panel">
@@ -3204,7 +3204,7 @@ function App() {
                         <input type="number" value={treeTargetInput} onChange={(event) => setTreeTargetInput(event.target.value)} />
                       </label>
                     )}
-                    <button className="tree-build-button" type="button" onClick={buildTreeAnimation}>Build tree <span>→</span></button>
+                    <button className="tree-build-button" type="button" onClick={buildTreeAnimation}>Build tree <span>â†’</span></button>
                   </div>
 
                   {treeError && <div className="tree-error" role="alert">{treeError}</div>}
@@ -3268,7 +3268,7 @@ function App() {
                       </div>
                     </div>
 
-                    <div className="tree-stage-message"><span>✦</span><p>{currentTreeFrame.message}</p></div>
+                    <div className="tree-stage-message"><span>âœ¦</span><p>{currentTreeFrame.message}</p></div>
 
                     <div className="tree-output">
                       <strong>TRAVERSAL OUTPUT</strong>
@@ -3278,10 +3278,10 @@ function App() {
                     </div>
 
                     <div className="tree-controls">
-                      <button type="button" disabled={treeStep === 0} onClick={() => setTreeStep(0)}>↺ Restart</button>
+                      <button type="button" disabled={treeStep === 0} onClick={() => setTreeStep(0)}>â†º Restart</button>
                       <div>
-                        <button type="button" disabled={treeStep === 0} onClick={() => setTreeStep((step) => Math.max(0, step - 1))}>← Previous</button>
-                        <button className="tree-next-button" type="button" disabled={treeStep >= treeFrames.length - 1} onClick={() => setTreeStep((step) => Math.min(treeFrames.length - 1, step + 1))}>Next step →</button>
+                        <button type="button" disabled={treeStep === 0} onClick={() => setTreeStep((step) => Math.max(0, step - 1))}>â† Previous</button>
+                        <button className="tree-next-button" type="button" disabled={treeStep >= treeFrames.length - 1} onClick={() => setTreeStep((step) => Math.min(treeFrames.length - 1, step + 1))}>Next step â†’</button>
                       </div>
                     </div>
                   </div>
@@ -3294,7 +3294,7 @@ function App() {
               )}
             </section>
 
-            <div className="editor-note"><span>🔒</span> Code is sent to the remote compiler only when you press Run. Personal snippets and learning progress can sync privately through your Supabase account.</div>
+            <div className="editor-note"><span>ðŸ”’</span> Code is sent to the remote compiler only when you press Run. Personal snippets and learning progress can sync privately through your Supabase account.</div>
           </main>
         </div>
       </div>
@@ -3312,7 +3312,7 @@ function App() {
         <nav className="nav-links" aria-label="Main navigation">
           <a href="#features">Features</a><a href="#how-it-works">How it works</a><a href="#demo">Try a demo</a>
         </nav>
-        <button className="top-cta" type="button" onClick={openEditor}>Open Code Editor <span>↗</span></button>
+        <button className="top-cta" type="button" onClick={openEditor}>Open Code Editor <span>â†—</span></button>
       </header>
 
       <main id="home">
@@ -3322,46 +3322,49 @@ function App() {
             <h1>See the logic.<br /><span>Not just the code.</span></h1>
             <p className="hero-description">Meet your friendly AI programming companion. Understand code line by line, watch logic come alive, and make tricky topics feel simple.</p>
             <div className="hero-actions">
-              <button className="primary-button" type="button" onClick={openEditor}>Open Code Editor <span>→</span></button>
-              <a className="secondary-button" href="#features">Discover features <span>↓</span></a>
+              <button className="primary-button" type="button" onClick={openEditor}>Open Code Editor <span>â†’</span></button>
+              <a className="secondary-button" href="#features">Discover features <span>â†“</span></a>
             </div>
-            <div className="hero-proof"><div className="avatar-stack"><span>👩🏻‍💻</span><span>🧑🏽‍🎓</span><span>👨🏼‍💻</span></div><div><strong>Learn at your own pace</strong><small>Built for curious minds and new coders</small></div></div>
+            <div className="hero-proof"><div className="avatar-stack"><span>ðŸ‘©ðŸ»â€ðŸ’»</span><span>ðŸ§‘ðŸ½â€ðŸŽ“</span><span>ðŸ‘¨ðŸ¼â€ðŸ’»</span></div><div><strong>Learn at your own pace</strong><small>Built for curious minds and new coders</small></div></div>
           </div>
           <div className="hero-art">
-            <div className="float-chip chip-top"><span>✦</span> Learn visually</div>
+            <div className="float-chip chip-top"><span>âœ¦</span> Learn visually</div>
             <div className="code-window">
               <div className="window-top"><div className="window-dots"><i /><i /><i /></div><span className="file-label"><span className="cpp-badge">C++</span> sum.cpp</span><span className="window-status"><b /> Ready</span></div>
               <div className="code-content">
                 <div className="code-lines"><div><em>01</em><span className="code-purple">int</span> <span className="code-white">a</span> = <span className="code-orange">10</span>;</div><div><em>02</em><span className="code-purple">int</span> <span className="code-white">b</span> = <span className="code-orange">20</span>;</div><div className="active-code-line"><em>03</em><span className="code-purple">int</span> <span className="code-white">sum</span> = a + b;</div><div><em>04</em><span className="code-pink">cout</span> &lt;&lt; sum;</div></div>
-                <div className="visual-divider"><span>↓</span><small>MEMORY VIEW</small><span>↓</span></div>
+                <div className="visual-divider"><span>â†“</span><small>MEMORY VIEW</small><span>â†“</span></div>
                 <div className="memory-cards"><div className="memory-card memory-a"><small>int a</small><strong>10</strong></div><div className="memory-card memory-b"><small>int b</small><strong>20</strong></div><div className="memory-card memory-sum"><small>int sum</small><strong>30</strong></div></div>
               </div>
               <div className="window-bottom"><span><i /> Program explained</span><span>Step 03 / 04</span></div>
             </div>
-            <div className="float-chip chip-bottom"><span>✦</span> From confusion to clarity</div><div className="art-spark spark-one">✳</div><div className="art-spark spark-two">✦</div>
+            <div className="float-chip chip-bottom"><span>âœ¦</span> From confusion to clarity</div><div className="art-spark spark-one">âœ³</div><div className="art-spark spark-two">âœ¦</div>
           </div>
         </section>
 
         <section className="trust-strip section-wrap"><span>MADE FOR THE WAY YOU LEARN</span><div><b>01</b> Understand concepts</div><div><b>02</b> Visualize the steps</div><div><b>03</b> Practice with confidence</div></section>
 
         <section className="features-section section-wrap" id="features">
-          <div className="section-heading"><div><div className="section-kicker">YOUR LEARNING TOOLKIT</div><h2>Big concepts. <span>Made simple.</span></h2></div><p>Everything you need to move from “I don't get it” to “Oh, now I see!”</p></div>
-          <div className="feature-grid">{featureCards.map((feature) => <article className={`feature-card ${feature.tone}`} key={feature.number}><div className="feature-card-top"><span className="feature-icon">{feature.icon}</span><span className="feature-number">{feature.number}</span></div><h3>{feature.title}</h3><p>{feature.text}</p><span className="feature-arrow">↗</span></article>)}</div>
+          <div className="section-heading"><div><div className="section-kicker">YOUR LEARNING TOOLKIT</div><h2>Big concepts. <span>Made simple.</span></h2></div><p>Everything you need to move from â€œI don't get itâ€ to â€œOh, now I see!â€</p></div>
+          <div className="feature-grid">{featureCards.map((feature) => <article className={`feature-card ${feature.tone}`} key={feature.number}><div className="feature-card-top"><span className="feature-icon">{feature.icon}</span><span className="feature-number">{feature.number}</span></div><h3>{feature.title}</h3><p>{feature.text}</p><span className="feature-arrow">â†—</span></article>)}</div>
         </section>
 
         <section className="demo-section section-wrap" id="demo">
-          <div className="demo-copy"><div className="section-kicker">A LITTLE PREVIEW</div><h2>Code goes in.<br /><span>Clarity comes out.</span></h2><p>Open your coding workspace to edit a C++ example. We'll add AI explanations and code execution in the next phases.</p><button className="primary-button" type="button" onClick={openEditor}>Try the code editor <span>→</span></button></div>
-          <div className="demo-panel"><div className="demo-panel-header"><span><i /> INTERACTIVE CODE PREVIEW</span><span className="demo-lang">C++</span></div><div className="demo-code"><div className="demo-code-line"><span className="line-number">01</span><code>int a = 10;</code></div><div className="demo-code-line"><span className="line-number">02</span><code>int b = 20;</code></div><div className="demo-code-line selected"><span className="line-number">03</span><code>int sum = a + b;</code><span className="line-marker">●</span></div><div className="demo-code-line"><span className="line-number">04</span><code>cout &lt;&lt; sum;</code></div></div><div className="explanation-box"><div className="explanation-heading"><span>✦</span> EXAMPLE MEMORY VIEW</div><div className="memory-cards"><div className="memory-card memory-a"><small>a</small><strong>10</strong></div><div className="memory-card memory-b"><small>b</small><strong>20</strong></div><div className="memory-card memory-sum"><small>sum</small><strong>30</strong></div></div></div></div>
+          <div className="demo-copy"><div className="section-kicker">A LITTLE PREVIEW</div><h2>Code goes in.<br /><span>Clarity comes out.</span></h2><p>Open your coding workspace to edit a C++ example. We'll add AI explanations and code execution in the next phases.</p><button className="primary-button" type="button" onClick={openEditor}>Try the code editor <span>â†’</span></button></div>
+          <div className="demo-panel"><div className="demo-panel-header"><span><i /> INTERACTIVE CODE PREVIEW</span><span className="demo-lang">C++</span></div><div className="demo-code"><div className="demo-code-line"><span className="line-number">01</span><code>int a = 10;</code></div><div className="demo-code-line"><span className="line-number">02</span><code>int b = 20;</code></div><div className="demo-code-line selected"><span className="line-number">03</span><code>int sum = a + b;</code><span className="line-marker">â—</span></div><div className="demo-code-line"><span className="line-number">04</span><code>cout &lt;&lt; sum;</code></div></div><div className="explanation-box"><div className="explanation-heading"><span>âœ¦</span> EXAMPLE MEMORY VIEW</div><div className="memory-cards"><div className="memory-card memory-a"><small>a</small><strong>10</strong></div><div className="memory-card memory-b"><small>b</small><strong>20</strong></div><div className="memory-card memory-sum"><small>sum</small><strong>30</strong></div></div></div></div>
         </section>
 
-        <section className="how-section section-wrap" id="how-it-works"><div className="center-heading"><div className="section-kicker">YOUR NEXT STEP STARTS HERE</div><h2>Learn in <span>three simple steps.</span></h2></div><div className="how-grid"><div className="how-card"><div className="how-icon icon-one">⌨️</div><span>STEP 01</span><h3>Bring your code</h3><p>Write a snippet or choose a beginner-friendly example.</p></div><div className="how-card"><div className="how-icon icon-two">✨</div><span>STEP 02</span><h3>Let it make sense</h3><p>Explore a clear explanation and follow the logic visually.</p></div><div className="how-card"><div className="how-icon icon-three">🚀</div><span>STEP 03</span><h3>Practice and grow</h3><p>Try a new example, ask questions and build confidence.</p></div></div></section>
+        <section className="how-section section-wrap" id="how-it-works"><div className="center-heading"><div className="section-kicker">YOUR NEXT STEP STARTS HERE</div><h2>Learn in <span>three simple steps.</span></h2></div><div className="how-grid"><div className="how-card"><div className="how-icon icon-one">âŒ¨ï¸</div><span>STEP 01</span><h3>Bring your code</h3><p>Write a snippet or choose a beginner-friendly example.</p></div><div className="how-card"><div className="how-icon icon-two">âœ¨</div><span>STEP 02</span><h3>Let it make sense</h3><p>Explore a clear explanation and follow the logic visually.</p></div><div className="how-card"><div className="how-icon icon-three">ðŸš€</div><span>STEP 03</span><h3>Practice and grow</h3><p>Try a new example, ask questions and build confidence.</p></div></div></section>
 
-        <section className="final-cta section-wrap"><div className="cta-decoration">✳</div><div><div className="section-kicker">READY WHEN YOU ARE</div><h2>Make code click.</h2><p>Your programming journey deserves a clearer view.</p></div><button className="primary-button cta-button" type="button" onClick={openEditor}>Open your workspace <span>→</span></button></section>
+        <section className="final-cta section-wrap"><div className="cta-decoration">âœ³</div><div><div className="section-kicker">READY WHEN YOU ARE</div><h2>Make code click.</h2><p>Your programming journey deserves a clearer view.</p></div><button className="primary-button cta-button" type="button" onClick={openEditor}>Open your workspace <span>â†’</span></button></section>
       </main>
 
-      <footer className="footer section-wrap"><button className="brand brand-button" type="button" onClick={() => setPage('home')}><span className="brand-mark"><span /></span><span className="brand-name">CodeLens<span>AI</span></span></button><p>Understand code. Visualize logic. Keep growing.</p><span>© 2026 CodeLens AI · Learning, made clearer.</span></footer>
+      <footer className="footer section-wrap"><button className="brand brand-button" type="button" onClick={() => setPage('home')}><span className="brand-mark"><span /></span><span className="brand-name">CodeLens<span>AI</span></span></button><p>Understand code. Visualize logic. Keep growing.</p><span>Â© 2026 CodeLens AI Â· Learning, made clearer.</span><span>Created by Wajid Hameed</span></footer>
     </div>
   )
 }
 
 export default App
+
+
+
