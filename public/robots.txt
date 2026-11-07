@@ -1,0 +1,4 @@
+﻿User-agent: *
+Allow: /
+
+Sitemap: https://codelens-ai-liart.vercel.app/sitemap.xml
